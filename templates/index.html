@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f4f4;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 300px;
+        }
+        input[type="submit"] {
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Todo List</h1>
+
+    <ul>
+        {% for todo in todos %}
+            <li>{{ todo }}</li>
+        {% else %}
+            <li>No todos yet!</li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST" action="/add">
+        <input type="text" name="todo" placeholder="Add new task..." required>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>
